@@ -16,3 +16,12 @@ step by step
 
 5. Stop Container dan Melihat log 10 baris proses terakhir yang berjalan di Container welcome1
 ![-f --tail 10 welcome1](https://github.com/ivialvam/learning-docker/assets/97967090/bc3adc0d-32a1-4326-a995-bf3e9e0a8d5b)
+
+
+# Proses dan Output Task: Build Docker to Docker Image
+
+![dockerbuild](https://github.com/ivialvam/learning-docker/assets/97967090/c1f50f47-601c-4299-8162-3ae36a1969ba)
+![docker build to docker image](https://github.com/ivialvam/learning-docker/assets/97967090/62d84fbc-69a5-4d8a-a3f8-5392ff737e71)
+![output](https://github.com/ivialvam/learning-docker/assets/97967090/e41867dc-30f4-40ad-8943-e338918eaa4a)
+![dc log](https://github.com/ivialvam/learning-docker/assets/97967090/1b480bb8-f782-47c3-81af-eaca3b9a46d5)
+
