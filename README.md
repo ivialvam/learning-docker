@@ -25,3 +25,41 @@ step by step
 ![output](https://github.com/ivialvam/learning-docker/assets/97967090/e41867dc-30f4-40ad-8943-e338918eaa4a)
 ![dc log](https://github.com/ivialvam/learning-docker/assets/97967090/1b480bb8-f782-47c3-81af-eaca3b9a46d5)
 
+# Run postgres with existing volume
+sh
+docker run -d |
+-name postgres l
+-e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=pasSword |
+-v my-postgres-data:/var/lib/postgresql/data \
+-p 5431:5432 postgres
+
+![postgress dwoload](https://github.com/ivialvam/learning-docker/assets/97967090/cbde2e2a-d417-40c1-806e-f13bec959861)
+![docker postgres running](https://github.com/ivialvam/learning-docker/assets/97967090/635d9a13-ba33-4605-bf0f-6e77d6278004)
+![docker volume](https://github.com/ivialvam/learning-docker/assets/97967090/38df6629-a687-4591-95fa-49e2147ff7a4)
+
+
+![db table](https://github.com/ivialvam/learning-docker/assets/97967090/72cb06e9-41c0-49e9-85f9-920deee64822)
+![docker postgres stopped](https://github.com/ivialvam/learning-docker/assets/97967090/1c9535a1-0662-4be7-b9a8-83d8c547f4fc)
+
+![dockerpostgres](https://github.com/ivialvam/learning-docker/assets/97967090/aebcaee8-cc86-495c-839b-421a6a58e36e)
+![postgres v2](https://github.com/ivialvam/learning-docker/assets/97967090/b3305eae-13ad-4009-b940-5832db844c48)
+
+![docker running container](https://github.com/ivialvam/learning-docker/assets/97967090/a6978e52-05f0-4f8f-b4a4-16e257b27e47)
+![docker running image](https://github.com/ivialvam/learning-docker/assets/97967090/94a8c2c8-dcc0-4ca2-ab3d-5eafd8c33d8a)
+![volume v2](https://github.com/ivialvam/learning-docker/assets/97967090/63b93084-b6a2-47ef-9314-8a56e465be71)
+
+
+
+![db table](https://github.com/ivialvam/learning-docker/assets/97967090/67314a3e-e834-400e-b2e4-779dff15519b)
+
+
+
+1. Hapus container postgres yg lama
+2. jalankan docker diatas, postgres container dengan nama "my-postgres-{username}"
+dengan env dan volume "my-Pg-volume-{username}"
+3. pastikan bisa sukses terkoneksi
+4. buat table baru dengan nama github kalian "{username}"
+5. stop dan hapus container postgres "my-postgres-v2-{username}"
+6. jalankan ulang docker postgres dengan env dan volume
+7. cek apakah table masih ada
+8. ketik command dan screenshot serta masukkan ke folder "my-container-volume"
