@@ -1,0 +1,55 @@
+version: '3.9'
+
+name: docker-compose-learning
+
+services:
+  app:
+    container_name: golang_container
+    environment:
+      - DB_USER=${DB_USER}
+      - DB PASS=${DB_PASS}
+      - DB_NAME=${DB_NAME}
+      - DB HOST=${DB_HOST}
+      - DE_PORT=${DB_PORT}
+    env_file:
+      - .env
+    build:
+      context: ./go_sample_postgres/
+      dockerfile: Dockerfile
+
+    depends_on:
+      postgresdb:
+        condition: service_healthy
+    ports:
+      - 8080:8080
+    networks:
+      - learning
+
+  postgresdb:
+    image: postgres:latest
+    container_name: postgres_container
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_HOST=${DB_HOST}
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    ports:
+      - '5432:5432'
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - learning
+
+volumes:
+  pg_data:
+
+networks:
+  learning:
+    driver: bridge
