@@ -1,0 +1,54 @@
+version: '3.9'
+
+name: my-docker-compose-app
+
+services:
+  app:
+    container_name: go_service
+    environment:
+      - DB_USER=${DB_USER}
+      - DB PASS=${DB_PASS}
+      - DB_NAME=${DB_NAME}
+      - DB HOST=${DB_HOST}
+      - DE_PORT=${DB_PORT}
+    env_file:
+      - .env
+    build:
+      context: ./my-dockerfile/
+      dockerfile: Dockerfile
+
+    depends_on:
+      postgresdb:
+        condition: service_healthy
+    ports:
+      - 9911:78
+    networks:
+      - latest
+
+  postgresdb:
+    image: postgres:latest
+    container_name: databse
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d ${DB_NAME} -U ${DB_USER}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    ports:
+      - '5431:5432'
+    volumes:
+      - volwwc:/var/lib/postgresql/data
+    networks:
+      - netwwc
+
+volumes:
+  volwwc:
+
+networks:
+  volwwc:
+    driver: bridge
