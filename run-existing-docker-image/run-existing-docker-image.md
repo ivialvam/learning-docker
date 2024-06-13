@@ -1,6 +1,7 @@
 # Task: Run Existing Docker Image as a Container
 
 1. Run command in terminal docker run -d -p 8080:80 --name welcome1 docker/welcome-to-docker
+![imagewelcome](https://github.com/ivialvam/learning-docker/assets/97967090/d5fe324b-9a13-4282-b99e-917c2338d4a4)
 
 2. Check whether the welcome1 container can run on the desired port
 
